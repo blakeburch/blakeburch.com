@@ -1,32 +1,83 @@
 ---
-import { getCollection } from "astro:content";
+import { type CollectionEntry, getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
 import ArrowCard from "@components/ArrowCard.astro";
+import FilterTags from "@components/FilterTags.astro";
 import { PROJECTS } from "@consts";
 
-const projects = (await getCollection("projects"))
+const allProjects = await getCollection("projects");
+const projects = allProjects
   .filter((project) => !project.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+// Get all unique tags
+const allTags = [...new Set(projects.flatMap(project => project.data.tags || []))];
+
 ---
 
 <Layout title={PROJECTS.TITLE} description={PROJECTS.DESCRIPTION}>
   <Container>
     <aside data-pagefind-ignore>
-      <div class="space-y-10">
+      <FilterTags tags={allTags} />
+      <div class="space-y-10" id="project-list">
         <div class="animate font-semibold text-black dark:text-white">
           Projects
         </div>
         <ul class="animate not-prose flex flex-col gap-4">
-          {
-            projects.map((project) => (
-              <li>
-                <ArrowCard entry={project} />
-              </li>
-            ))
-          }
+          {projects.map((project) => (
+            <li class="project-item" data-tags={project.data.tags?.join(',')}>
+              <ArrowCard entry={project} />
+            </li>
+          ))}
         </ul>
       </div>
     </aside>
   </Container>
 </Layout>
+
+<script hoist>
+  function initializeFiltering() {
+    function filterProjects() {
+      const selectedTags = Array.from(document.querySelectorAll('.tag-filter.selected'))
+        .map(button => button.getAttribute('data-tag'));
+      const projectItems = document.querySelectorAll('.project-item');
+
+      projectItems.forEach(item => {
+        const projectTags = item.getAttribute('data-tags')?.split(',') || [];
+        const shouldShow = selectedTags.length === 0 || selectedTags.some(tag => projectTags.includes(tag));
+        item.style.display = shouldShow ? 'block' : 'none';
+      });
+    }
+
+    // Attach event listeners
+    document.addEventListener('filterUpdate', filterProjects);
+
+    const tagButtons = document.querySelectorAll('.tag-filter');
+    tagButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        button.classList.toggle('selected');
+        document.dispatchEvent(new Event('filterUpdate'));
+      });
+    });
+
+    const clearFiltersButton = document.getElementById('clear-filters');
+    if (clearFiltersButton) {
+      clearFiltersButton.addEventListener('click', () => {
+        tagButtons.forEach(button => button.classList.remove('selected'));
+        document.dispatchEvent(new Event('filterUpdate'));
+      });
+    }
+
+    // Ensure filter section is always visible
+    const filterSection = document.getElementById('filter-tags-section');
+    if (filterSection) {
+      filterSection.style.display = 'block';
+      filterSection.style.visibility = 'visible';
+      filterSection.style.opacity = '1';
+    }
+  }
+
+  // Run initialization on page load and on view transitions
+  document.addEventListener('astro:page-load', initializeFiltering);
+</script>

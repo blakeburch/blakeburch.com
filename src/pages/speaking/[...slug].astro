@@ -7,6 +7,7 @@ import { readingTime } from "@lib/utils";
 import BackToPrevious from "@components/BackToPrevious.astro";
 import Link from "@components/Link.astro";
 import TableOfContents from "@components/TableOfContents.astro";
+import Tag from "@components/Tag.astro";
 
 export async function getStaticPaths() {
   const speakers = (await getCollection("speaking"))
@@ -23,7 +24,7 @@ const speaker = Astro.props;
 const { Content, headings } = await speaker.render();
 ---
 
-<Layout title={speaker.data.title} description={speaker.data.description}>
+<Layout title={speaker.data.title} description={speaker.data.description} tags={speaker.data.tags}>
   <Container>
     <div class="animate">
       <BackToPrevious href="/speaking">Back to speaking</BackToPrevious>
@@ -62,6 +63,11 @@ const { Content, headings } = await speaker.render();
           </nav>
         )
       }
+      <div class="mt-4 space-x-2">
+        {speaker.data.tags && speaker.data.tags.map((tag: string) => (
+          <Tag name={tag} />
+        ))}
+      </div>
     </div>
     <TableOfContents headings={headings} />
     <article class="animate">

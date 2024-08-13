@@ -1,0 +1,60 @@
+---
+import Tag from './Tag.astro';
+
+interface Props {
+  tags: string[];
+}
+
+const { tags } = Astro.props;
+---
+
+<div class="mb-6" id="filter-tags-section">
+  <h2 class="text-lg font-semibold mb-2">Filter by tags:</h2>
+  <div class="flex flex-wrap gap-2 mb-2">
+    {tags.map((tag) => (
+      <button class="tag-filter" data-tag={tag}>
+        <Tag name={tag} />
+      </button>
+    ))}
+  </div>
+  <button id="clear-filters" class="text-sm text-blue-600 hover:underline">Clear filters</button>
+</div>
+
+<script>
+  const tagButtons = document.querySelectorAll('.tag-filter');
+  const clearFiltersButton = document.getElementById('clear-filters');
+
+  tagButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      button.classList.toggle('selected');
+      document.dispatchEvent(new Event('filterUpdate'));
+    });
+  });
+
+  clearFiltersButton.addEventListener('click', () => {
+    tagButtons.forEach(button => button.classList.remove('selected'));
+    document.dispatchEvent(new Event('filterUpdate'));
+  });
+
+  // Ensure the filter section stays visible
+  const filterSection = document.getElementById('filter-tags-section');
+  if (filterSection) {
+    filterSection.style.display = 'block';
+  }
+</script>
+
+<style>
+  #filter-tags-section {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .tag-filter {
+    transition: all 0.3s ease;
+  }
+
+  .tag-filter.selected :global(span) {
+    box-shadow: 0 0 0 2px currentColor;
+  }
+</style>

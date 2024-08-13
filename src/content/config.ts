@@ -7,6 +7,7 @@ const blog = defineCollection({
     description: z.string(),
     date: z.coerce.date(),
     draft: z.boolean().optional(),
+    tags: z.array(z.string()).optional(),
   }),
 });
 
@@ -19,6 +20,7 @@ const projects = defineCollection({
     draft: z.boolean().optional(),
     demoURL: z.string().optional(),
     repoURL: z.string().optional(),
+    tags: z.array(z.string()).optional(),
   }),
 });
 
@@ -32,6 +34,7 @@ const speaking = defineCollection({
     videoURL: z.string().optional(),
     audioURL: z.string().optional(),
     eventURL: z.string().optional(),
+    tags: z.array(z.string()).optional(),
   }),
 });
 

@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import Tag from './Tag.astro';
 
 type Props = {
   entry:
@@ -9,19 +10,30 @@ type Props = {
 };
 
 const { entry } = Astro.props;
+const tags = entry.data.tags || [];
+const displayTags = tags.slice(0, 3); // Display up to 3 tags
 ---
 
 <a
   href={`/${entry.collection}/${entry.slug}`}
   class="not-prose group relative flex flex-nowrap rounded-lg border border-black/15 px-4 py-3 pr-10 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white"
 >
-  <div class="flex flex-1 flex-col truncate">
-    <div class="font-semibold">
-      {entry.data.title}
+  <div class="flex flex-1 flex-col justify-between truncate">
+    <div>
+      <div class="font-semibold">
+        {entry.data.title}
+      </div>
+      <div class="text-sm">
+        {entry.data.description}
+      </div>
     </div>
-    <div class="text-sm">
-      {entry.data.description}
-    </div>
+    {displayTags.length > 0 && (
+      <div class="mt-2 flex flex-wrap gap-2">
+        {displayTags.map((tag) => (
+          <Tag name={tag} />
+        ))}
+      </div>
+    )}
   </div>
   <svg
     xmlns="http://www.w3.org/2000/svg"
