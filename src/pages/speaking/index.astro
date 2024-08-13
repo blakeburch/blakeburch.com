@@ -1,0 +1,55 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import ArrowCard from "@components/ArrowCard.astro";
+import { SPEAKING } from "@consts";
+
+const data = (await getCollection("speaking"))
+  .filter((speaking) => !speaking.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+type Acc = {
+  [year: string]: CollectionEntry<"speaking">[];
+};
+
+const speaking = data.reduce((acc: Acc, speaking) => {
+  const year = speaking.data.date.getFullYear().toString();
+  if (!acc[year]) {
+    acc[year] = [];
+  }
+  acc[year].push(speaking);
+  return acc;
+}, {});
+
+const years = Object.keys(speaking).sort((a, b) => parseInt(b) - parseInt(a));
+---
+
+<Layout title={SPEAKING.TITLE} description={SPEAKING.DESCRIPTION}>
+  <Container>
+    <aside data-pagefind-ignore>
+      <div class="space-y-10">
+        <div class="space-y-4">
+          {
+            years.map((year) => (
+              <section class="animate space-y-4">
+                <div class="font-semibold text-black dark:text-white">
+                  {year}
+                </div>
+                <div>
+                  <ul class="not-prose flex flex-col gap-4">
+                    {speaking[year].map((speaking) => (
+                      <li>
+                        <ArrowCard entry={speaking} />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </section>
+            ))
+          }
+        </div>
+      </div>
+    </aside>
+  </Container>
+</Layout>

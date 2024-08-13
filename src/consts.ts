@@ -1,11 +1,12 @@
 import type { Metadata, Site, Socials } from "@types";
 
 export const SITE: Site = {
-  TITLE: "Blake Burch - Data Strategy + AI Leader",
+  TITLE: "Blake Burch",
   DESCRIPTION: "Get in touch with Blake Burch for projects related to data strategy or AI.",
   EMAIL: "hello@blakeburch.com",
   NUM_POSTS_ON_HOMEPAGE: 5,
   NUM_PROJECTS_ON_HOMEPAGE: 3,
+  NUM_SPEAKING_ON_HOMEPAGE: 3,
 };
 
 export const HOME: Metadata = {
@@ -20,7 +21,7 @@ export const ABOUT: Metadata = {
 
 export const SPEAKING: Metadata = {
   TITLE: "Speaking",
-  DESCRIPTION: "See how I talk about data strategy and AI on podcasts and at events.",
+  DESCRIPTION: "A collection of my speaking engagements and podcast appearances.",
 };
 
 export const BLOG: Metadata = {

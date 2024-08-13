@@ -18,52 +18,45 @@ const projects: CollectionEntry<"projects">[] = (
   .filter((project) => !project.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE);
+
+const speakers: CollectionEntry<"speaking">[] = (
+  await getCollection("speaking")
+)
+  .filter((speaker) => !speaker.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, SITE.NUM_SPEAKING_ON_HOMEPAGE);
 ---
 
 <Layout title={HOME.TITLE} description={HOME.DESCRIPTION}>
   <Container>
     <aside data-pagefind-ignore>
+      <img src="/professional-headshot.jpg" alt="Blake Burch" class="rounded-full w-48 h-48 ml-4 mb-4" />
       <h1 class="animate font-semibold text-black dark:text-white">
-        Introducing Astro Micro 🔬
+        Hey there! 👋 I'm Blake.
       </h1>
       <div class="space-y-16">
         <section>
           <article class="space-y-4">
             <span class="animate">
               <p>
-                Astro Micro is an accessible theme for <Link
-                  href="https://astro.build/">Astro</Link
-                >. It's a fork of
-                <Link href="https://github.com/markhorn-dev">
-                  Mark Horn's
-                </Link> popular theme <Link
-                  href="https://astro.build/themes/details/astronano/"
-                  >Astro Nano</Link
-                >. Like Nano, Micro comes with zero frameworks installed.
+                Whether you already know me, or want to get a better idea of who I am, this website serves as a central hub
+                for everything related to my life.  I kept it purposefully simple. Function over form.
+                </p>
+                <p>
+                Since 2024, I share my work, thoughts, and ideas here. My goal is to be more open and share more freely - to get out of my head and into the world. 
+                At the same time, I want to prioritize making deeper connections both locally and globally.
+               
+              </p>
+                Hopefully, you'll find something here that interests you. If you do, please reach out! It would make my day.
               </p>
               <p>
-                Micro adds features like <Link href="https://pagefind.app/"
-                  >Pagefind</Link
-                > for search, <Link href="https://giscus.app">Giscus</Link> for comments,
-                and more. For a full list of changes, see this <Link
-                  href="/blog/00-micro-changelog">blog post</Link
-                >.
-              </p>
-            </span>
-            <span class="animate">
-              <p>
-                Micro still comes with everything great about Nano — full type
-                safety, a sitemap, an RSS feed, and Markdown + MDX support.
-                Styled with TailwindCSS and preconfigured with system, light,
-                and dark themes.
-              </p>
-              <p>
-                Visit
-                <Link href="https://github.com/trevortylerlee/astro-micro">
-                  Astro Micro on GitHub
-                </Link>
-                to fork the repository to get started.
-              </p>
+              <li> Want to learn more <Link href="about/">about me</Link>?</li>
+              <li>Want to know what I'm up to <Link href="now/">now</Link>?</li>
+              <li>Want to explore my <Link href="blog/">thoughts</Link>?</li>
+              <li>Want to know what I've <Link href="projects/">worked on</Link>?</li>
+              <li>Want to hear me <Link href="speaking/">talk</Link> about something interesting?</li>
+            </p>
+
             </span>
           </article>
         </section>
@@ -98,6 +91,24 @@ const projects: CollectionEntry<"projects">[] = (
               projects.map((project) => (
                 <li>
                   <ArrowCard entry={project} />
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <section class="animate space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-y-2">
+            <h2 class="font-semibold text-black dark:text-white">
+              Recent Speaking Engagements
+            </h2>
+            <Link href="/speaking"> See all engagements </Link>
+          </div>
+          <ul class="not-prose flex flex-col gap-4">
+            {
+              speakers.map((speaker) => (
+                <li>
+                  <ArrowCard entry={speaker} />
                 </li>
               ))
             }

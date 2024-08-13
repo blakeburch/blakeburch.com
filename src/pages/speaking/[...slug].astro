@@ -1,0 +1,71 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import FormattedDate from "@components/FormattedDate.astro";
+import { readingTime } from "@lib/utils";
+import BackToPrevious from "@components/BackToPrevious.astro";
+import Link from "@components/Link.astro";
+import TableOfContents from "@components/TableOfContents.astro";
+
+export async function getStaticPaths() {
+  const speakers = (await getCollection("speaking"))
+    .filter((speaker) => !speaker.data.draft)
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  return speakers.map((speaker) => ({
+    params: { slug: speaker.slug },
+    props: speaker,
+  }));
+}
+type Props = CollectionEntry<"speaking">;
+
+const speaker = Astro.props;
+const { Content, headings } = await speaker.render();
+---
+
+<Layout title={speaker.data.title} description={speaker.data.description}>
+  <Container>
+    <div class="animate">
+      <BackToPrevious href="/speaking">Back to speaking</BackToPrevious>
+    </div>
+    <div class="animate my-10 space-y-1">
+      <div class="flex items-center gap-1.5">
+        <div class="font-base text-sm">
+          <FormattedDate date={speaker.data.date} />
+        </div>
+        &bull;
+        <div class="font-base text-sm">
+          {readingTime(speaker.body)}
+        </div>
+      </div>
+      <h1 class="text-3xl font-semibold text-black dark:text-white">
+        {speaker.data.title}
+      </h1>
+      {
+        (speaker.data.videoURL || speaker.data.audioURL || speaker.data.eventURL) && (
+          <nav class="flex gap-1">
+            {speaker.data.videoURL && (
+              <Link href={speaker.data.videoURL}>
+                video
+              </Link>
+            )}
+            {speaker.data.audioURL && (
+              <Link href={speaker.data.audioURL}>
+                audio
+              </Link>
+            )}
+            {speaker.data.eventURL && (
+              <Link href={speaker.data.eventURL}>
+                event
+              </Link>
+            )}
+          </nav>
+        )
+      }
+    </div>
+    <TableOfContents headings={headings} />
+    <article class="animate">
+      <Content />
+    </article>
+  </Container>
+</Layout>
