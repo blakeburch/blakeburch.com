@@ -2,11 +2,17 @@
 import type { CollectionEntry } from "astro:content";
 
 type Props = {
-  entry: CollectionEntry<"blog"> | CollectionEntry<"projects">;
+  entry:
+    | CollectionEntry<"blog">
+    | CollectionEntry<"projects">
+    | CollectionEntry<"speaking">;
 };
 
 const { entry } = Astro.props as {
-  entry: CollectionEntry<"blog"> | CollectionEntry<"projects">;
+  entry:
+    | CollectionEntry<"blog">
+    | CollectionEntry<"projects">
+    | CollectionEntry<"speaking">;
 };
 ---
 
@@ -21,6 +27,11 @@ const { entry } = Astro.props as {
     <div class="text-sm">
       {entry.data.description}
     </div>
+    {entry.collection === "speaking" && entry.data.eventURL && (
+      <div class="text-sm">
+        Event: <a href={entry.data.eventURL} target="_blank" rel="noopener noreferrer">{new URL(entry.data.eventURL).hostname}</a>
+      </div>
+    )}
   </div>
   <svg
     xmlns="http://www.w3.org/2000/svg"

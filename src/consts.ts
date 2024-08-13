@@ -6,7 +6,7 @@ export const SITE: Site = {
   EMAIL: "hello@blakeburch.com",
   NUM_POSTS_ON_HOMEPAGE: 5,
   NUM_PROJECTS_ON_HOMEPAGE: 3,
-  NUM_SPEAKING_ON_HOMEPAGE: 3,
+  NUM_SPEAKING_ON_HOMEPAGE: 3
 };
 
 export const HOME: Metadata = {

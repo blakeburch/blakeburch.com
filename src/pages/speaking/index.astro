@@ -5,15 +5,17 @@ import Container from "@components/Container.astro";
 import ArrowCard from "@components/ArrowCard.astro";
 import { SPEAKING } from "@consts";
 
-const data = (await getCollection("speaking"))
-  .filter((speaking) => !speaking.data.draft)
+const speakers: CollectionEntry<"speaking">[] = (
+  await getCollection("speaking")
+)
+  .filter((speaker) => !speaker.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 type Acc = {
   [year: string]: CollectionEntry<"speaking">[];
 };
 
-const speaking = data.reduce((acc: Acc, speaking) => {
+const speaking = speakers.reduce((acc: Acc, speaking) => {
   const year = speaking.data.date.getFullYear().toString();
   if (!acc[year]) {
     acc[year] = [];

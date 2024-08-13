@@ -19,7 +19,7 @@ const projects: CollectionEntry<"projects">[] = (
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE);
 
-const speakers: CollectionEntry<"speaking">[] = (
+const speaking: CollectionEntry<"speaking">[] = (
   await getCollection("speaking")
 )
   .filter((speaker) => !speaker.data.draft)
@@ -106,9 +106,9 @@ const speakers: CollectionEntry<"speaking">[] = (
           </div>
           <ul class="not-prose flex flex-col gap-4">
             {
-              speakers.map((speaker) => (
+              speaking.map((speaking) => (
                 <li>
-                  <ArrowCard entry={speaker} />
+                  <ArrowCard entry={speaking} />
                 </li>
               ))
             }
