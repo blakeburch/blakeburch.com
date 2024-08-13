@@ -20,20 +20,22 @@ const { tags } = Astro.props;
   <button id="clear-filters" class="text-sm text-blue-600 hover:underline">Clear filters</button>
 </div>
 
-<script>
-  const tagButtons = document.querySelectorAll('.tag-filter');
+<script is:inline>
   const clearFiltersButton = document.getElementById('clear-filters');
+  const tagButtons = document.querySelectorAll('.tag-filter');
+
+  if (clearFiltersButton) {
+    clearFiltersButton.addEventListener('click', () => {
+      tagButtons.forEach(button => button.classList.remove('selected'));
+      filterEvents();
+    });
+  }
 
   tagButtons.forEach(button => {
     button.addEventListener('click', () => {
       button.classList.toggle('selected');
-      document.dispatchEvent(new Event('filterUpdate'));
+      filterEvents();
     });
-  });
-
-  clearFiltersButton.addEventListener('click', () => {
-    tagButtons.forEach(button => button.classList.remove('selected'));
-    document.dispatchEvent(new Event('filterUpdate'));
   });
 
   // Ensure the filter section stays visible

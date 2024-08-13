@@ -3,7 +3,6 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
 import ArrowCard from "@components/ArrowCard.astro";
-import FilterTags from "@components/FilterTags.astro";
 import { SPEAKING } from "@consts";
 
 const allSpeakingEvents = await getCollection("speaking");
@@ -33,7 +32,6 @@ const years = Object.keys(speakingByYear).sort((a, b) => parseInt(b) - parseInt(
 <Layout title={SPEAKING.TITLE} description={SPEAKING.DESCRIPTION}>
   <Container>
     <aside data-pagefind-ignore>
-      <FilterTags tags={allTags} />
       <div class="space-y-10" id="speaking-list">
         {years.map((year) => (
           <div class="mb-10 year-section">
@@ -51,56 +49,3 @@ const years = Object.keys(speakingByYear).sort((a, b) => parseInt(b) - parseInt(
     </aside>
   </Container>
 </Layout>
-
-<script hoist>
-  function initializeFiltering() {
-    function filterSpeakingEvents() {
-      const selectedTags = Array.from(document.querySelectorAll('.tag-filter.selected'))
-        .map(button => button.getAttribute('data-tag'));
-      const speakingItems = document.querySelectorAll('.speaking-item');
-      const yearSections = document.querySelectorAll('.year-section');
-
-      speakingItems.forEach(item => {
-        const eventTags = item.getAttribute('data-tags')?.split(',') || [];
-        const shouldShow = selectedTags.length === 0 || selectedTags.some(tag => eventTags.includes(tag));
-        item.style.display = shouldShow ? 'block' : 'none';
-      });
-
-      // Hide year sections if all events in that year are hidden
-      yearSections.forEach(section => {
-        const visibleEvents = section.querySelectorAll('.speaking-item[style="display: block;"]');
-        section.style.display = visibleEvents.length > 0 ? 'block' : 'none';
-      });
-    }
-
-    // Attach event listeners
-    document.addEventListener('filterUpdate', filterSpeakingEvents);
-
-    const tagButtons = document.querySelectorAll('.tag-filter');
-    tagButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        button.classList.toggle('selected');
-        document.dispatchEvent(new Event('filterUpdate'));
-      });
-    });
-
-    const clearFiltersButton = document.getElementById('clear-filters');
-    if (clearFiltersButton) {
-      clearFiltersButton.addEventListener('click', () => {
-        tagButtons.forEach(button => button.classList.remove('selected'));
-        document.dispatchEvent(new Event('filterUpdate'));
-      });
-    }
-
-    // Ensure filter section is always visible
-    const filterSection = document.getElementById('filter-tags-section');
-    if (filterSection) {
-      filterSection.style.display = 'block';
-      filterSection.style.visibility = 'visible';
-      filterSection.style.opacity = '1';
-    }
-  }
-
-  // Run initialization on page load and on view transitions
-  document.addEventListener('astro:page-load', initializeFiltering);
-</script>
