@@ -38,23 +38,30 @@ const speaking: CollectionEntry<"speaking">[] = (
         <section>
           <article class="space-y-4">
             <span class="animate">
+              <p>I'm a Data Strategy + AI Leader, an Austin Community Builder, and a Board Game Connoisseur.</p>
               <p>
                 Whether you already know me, or want to get a better idea of who I am, this website serves as a central hub
                 for everything related to my life.  I kept it purposefully simple. Function over form.
                 </p>
                 <p>
-                Since 2024, I share my work, thoughts, and ideas here. My goal is to be more open and share more freely - to get out of my head and into the world. 
+                Since 2024, I share my work, thoughts, and ideas here. I want to be open and share more freely - to get out of my head and into the world. 
                 At the same time, I want to prioritize making deeper connections both locally and globally.
                
               </p>
-                Hopefully, you'll find something here that interests you. If you do, please reach out! It would make my day.
-              </p>
+              
               <p>
               <li> Want to learn more <Link href="about/">about me</Link>?</li>
               <li>Want to know what I'm up to <Link href="now/">now</Link>?</li>
               <li>Want to explore my <Link href="blog/">thoughts</Link>?</li>
               <li>Want to know what I've <Link href="projects/">worked on</Link>?</li>
               <li>Want to hear me <Link href="speaking/">talk</Link> about something interesting?</li>
+              <li>Looking for something specfic? Just type <kbd>/</kbd> to search.</li>
+            </p>
+            <p>
+              
+            </p>
+            <p>
+              Hopefully, you'll find something here that interests you. If you do, please reach out! It would make my day.
             </p>
 
             </span>
@@ -115,40 +122,7 @@ const speaking: CollectionEntry<"speaking">[] = (
           </ul>
         </section>
 
-        <section class="animate space-y-4">
-          <h2 class="font-semibold text-black dark:text-white">
-            Let's Connect
-          </h2>
-          <article>
-            <p>
-              If you want to get in touch with me about something or just to say
-              hi, reach out on social media or send me an email.
-            </p>
-          </article>
-          <ul class="not-prose flex flex-wrap gap-2">
-            {
-              SOCIALS.map((SOCIAL) => (
-                <li class="flex gap-x-2 text-nowrap">
-                  <Link
-                    href={SOCIAL.HREF}
-                    aria-label={`${SITE.TITLE} on ${SOCIAL.NAME}`}
-                  >
-                    {SOCIAL.NAME}
-                  </Link>
-                  {"/"}
-                </li>
-              ))
-            }
-            <li class="line-clamp-1">
-              <Link
-                href={`mailto:${SITE.EMAIL}`}
-                aria-label={`Email ${SITE.TITLE}`}
-              >
-                {SITE.EMAIL}
-              </Link>
-            </li>
-          </ul>
-        </section>
+        
       </div>
     </aside>
   </Container>

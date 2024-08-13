@@ -21,12 +21,13 @@ Before that, I was the Head of Data Services at PMG, directing the agency’s ro
 In my free time, I geek out about tech trends, indie video games & board games. I'm a big fan of live music for funk/jazz/electronic, I play the drums when I can, and enjoy hiking when the Texas heat isn't too bad.
 
 Want to know if our interests overlap?
-- **Favorite Board Games**: Food Chain Magnate, Terra Mystica, Pipeline, Everdell, Race for the Galaxy
-- **Favorite Video Games**: Celeste, Hollow Knight, Outer Wilds, Neon White, The Witcher 3, NieR: Automata
-- **Favorite TV Shows**: Battlestar Galactica, Black Mirror, Breaking Bad, Bojack Horseman, Atlanta
-- **Favorite Books**: Project Hail Mary, Red Rising Trilogy
-- **Favorite Graphic Novels**: SAGA, Descender, Daytripper
-- **Favorite Bands**: Lawrence, Au5, Snarky Puppy, Dirty Loops, Vulfpeck, The Reign of Kindo
+- **Favorite Board Games** 🎲: Food Chain Magnate, Terra Mystica, Pipeline, Everdell, Race for the Galaxy
+- **Favorite Video Games** 🎮: Celeste, Hollow Knight, Outer Wilds, Neon White, The Witcher 3, NieR: Automata
+- **Favorite TV Shows** 📺: Battlestar Galactica, Black Mirror, Breaking Bad, Bojack Horseman, Atlanta
+- **Favorite Anime** 💢: Avatar: The Last Airbender, Gurren Lagann, Code Geass
+- **Favorite Books** 📚: Project Hail Mary, Red Rising Trilogy, The Dark Forest
+- **Favorite Graphic Novels** 💥: SAGA, Descender, Daytripper
+- **Favorite Bands** 🎵: Lawrence, Au5, Snarky Puppy, Dirty Loops, Vulfpeck, The Reign of Kindo
 
 ---
 
