@@ -1,10 +1,11 @@
 ---
 layout: ../layouts/WallofText.astro
 title: "About"
+description: "A page to learn more about my background and interests."
 ---
 # About Me
 
-[Resume](../../public/blake-burch-resume.pdf) / [Personal README](readme)
+[Resume](../../public/blake-burch-resume.pdf) / [Personal README](/readme)
 
 ## Work
 
@@ -19,6 +20,8 @@ Before that, I was the Head of Data Services at PMG, directing the agency’s ro
 ## Personal
 
 In my free time, I geek out about tech trends, indie video games & board games. I'm a big fan of live music for funk/jazz/electronic, I play the drums when I can, and enjoy hiking when the Texas heat isn't too bad.
+
+I'm slowly converting from an introvert to an extrovert. As a result, I'm seeking more and more opportunities to go out, meet new people, and build up the local community. That's why I run [weekly board game nights](https://www.meetup.com/games-and-grub-austin/) and [monthly data meetups](https://www.meetup.com/austin-data-meetup/).
 
 Want to know if our interests overlap?
 - **Favorite Board Games** 🎲: Food Chain Magnate, Terra Mystica, Pipeline, Everdell, Race for the Galaxy

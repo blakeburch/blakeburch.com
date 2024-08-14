@@ -74,3 +74,32 @@ const { Content, headings } = await project.render();
     </article>
   </Container>
 </Layout>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const links = document.querySelectorAll('article a');
+    links.forEach(link => {
+      if (link instanceof HTMLAnchorElement && link.hostname !== window.location.hostname && !link.querySelector('svg')) {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+        svg.setAttribute('width', '12');
+        svg.setAttribute('height', '12');
+        svg.setAttribute('viewBox', '0 0 24 24');
+        svg.setAttribute('fill', 'none');
+        svg.setAttribute('stroke', 'currentColor');
+        svg.setAttribute('stroke-width', '2');
+        svg.setAttribute('stroke-linecap', 'round');
+        svg.setAttribute('stroke-linejoin', 'round');
+        svg.setAttribute('class', 'ml-1 inline-block');
+        svg.innerHTML = `
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <line x1="10" y1="14" x2="21" y2="3"></line>
+        `;
+        link.appendChild(svg);
+      }
+    });
+  });
+</script>

@@ -1,6 +1,7 @@
 ---
 layout: ../layouts/WallofText.astro
 title: "Now"
+description: "A page to document what I'm doing with my life right now."
 ---
 # What I'm Doing Now
 **Last Updated: 2024-08-12**
