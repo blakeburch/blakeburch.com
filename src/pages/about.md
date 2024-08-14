@@ -4,7 +4,7 @@ title: "About"
 ---
 # About Me
 
-Resume / [Personal README](readme)
+[Resume](../../public/blake-burch-resume.pdf) / [Personal README](readme)
 
 ## Work
 
