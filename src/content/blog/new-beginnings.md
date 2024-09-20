@@ -4,7 +4,7 @@ description: "A commitment to building my own space."
 date: "2024-08-15"
 tags: ["short"]
 ---
-I've never run my own website before. I used to outsource that work to carrd.co. Now I've finally [created my my own space](projects/blake-burch-com/).
+I've never run my own website before. I used to outsource that work to carrd.co. Now I've finally [created my my own space](../projects/blake-burch-com/index.md).
 
 Here's my public commitment to this space:
 - I'm gonna try to make posts as often as I think of them. I've had too many times where a blog post stays in drafts because it's not something that I can "feel proud of".[^1]

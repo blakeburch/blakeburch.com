@@ -1,7 +1,7 @@
 ---
 layout: ../layouts/WallofText.astro
-title: "About"
-description: "A page to learn more about my background and interests."
+title: About Me
+description: A page to learn more about my background and interests.
 ---
 # About Me
 
