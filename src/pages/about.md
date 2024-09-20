@@ -5,7 +5,7 @@ description: A page to learn more about my background and interests.
 ---
 # About Me
 
-[Resume](../../public/blake-burch-resume.pdf) / [Personal README](/readme)
+[Resume](/blake-burch-resume.pdf) / [Personal README](/readme)
 
 ## Work
 
