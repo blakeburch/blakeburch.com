@@ -7,7 +7,7 @@ import pagefind from "astro-pagefind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://blakeburch-851407606-blakeburchs-projects.vercel.app",
+  site: "https://www.blakeburch.com",
   integrations: [tailwind(), sitemap(), mdx(), pagefind()],
   markdown: {
     shikiConfig: {
