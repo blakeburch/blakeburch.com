@@ -9,15 +9,19 @@ import { SITE } from "@consts";
 type Props = {
   title: string;
   description: string;
+  frontmatter?: {
+    title: string;
+    description: string;
+  };
 };
 
-const { frontmatter } = Astro.props;
+const { title, description } = Astro.props.frontmatter || Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <Head title={`${frontmatter.title} | ${SITE.TITLE}`} description={frontmatter.description} />
+    <Head title={`${title} | ${SITE.TITLE}`} description={description} />
   </head>
   <body>
     <Header />
