@@ -26,6 +26,8 @@ export async function GET(context) {
       description: item.data.description,
       pubDate: item.data.date,
       link: `/${item.collection}/${item.slug}/`,
+      content_type: item.collection, // Add the content-type field
+      tags: item.data.tags || [], // Add the tags field
     })),
   });
 }
