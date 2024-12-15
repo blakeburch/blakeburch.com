@@ -2,7 +2,7 @@
 title: "To New Beginnings"
 description: "A commitment to building my own space."
 date: "2024-08-15"
-tags: ["short"]
+tags: ["musings"]
 ---
 I've never run my own website before. I used to outsource that work to carrd.co. Now I've finally [created my my own space](../projects/blake-burch-com/index.md).
 

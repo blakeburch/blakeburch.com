@@ -3,28 +3,42 @@ import TableOfContentsHeading from "./TableOfContentsHeading.astro";
 
 // https://kld.dev/building-table-of-contents/
 const { headings } = Astro.props;
-const toc = buildToc(headings);
 
-export interface Heading {
+interface TocItem {
   depth: number;
-  slug: string;
   text: string;
+  slug: string;
+  subheadings?: TocItem[];
 }
 
-function buildToc(headings: Heading[]) {
-  const toc: Heading[] = [];
+function buildToc(headings: any[]): TocItem[] {
+  const toc: TocItem[] = [];
   const parentHeadings = new Map();
+
   headings.forEach((h) => {
-    const heading = { ...h, subheadings: [] };
-    parentHeadings.set(heading.depth, heading);
-    if (heading.depth === 2) {
+    const heading: TocItem = {
+      depth: h.depth,
+      text: h.text,
+      slug: h.slug,
+      subheadings: []
+    };
+
+    // Handle different heading levels
+    if (h.depth === 2) {
       toc.push(heading);
-    } else {
-      parentHeadings.get(heading.depth - 1).subheadings.push(heading);
+      parentHeadings.set(h.depth, heading);
+    } else if (h.depth === 3) {
+      const parent = parentHeadings.get(2);
+      if (parent) {
+        parent.subheadings?.push(heading);
+      }
     }
   });
+
   return toc;
 }
+
+const toc = buildToc(headings);
 ---
 
 <details

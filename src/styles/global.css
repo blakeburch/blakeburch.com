@@ -42,6 +42,7 @@ article {
   @apply prose prose-neutral max-w-full dark:prose-invert prose-img:mx-auto prose-img:my-auto;
   @apply prose-headings:font-semibold;
   @apply prose-headings:text-black prose-headings:dark:text-white;
+  @apply prose-code:before:content-none prose-code:after:content-none;
 }
 
 @layer utilities {
@@ -53,6 +54,15 @@ article {
   article a:hover {
     @apply text-black dark:text-white;
     @apply decoration-black/50 dark:decoration-white/50;
+  }
+  article blockquote {
+    @apply not-italic border-l-2 border-neutral-200 pl-6 dark:border-neutral-700;
+    quotes: none;
+  }
+  
+  article blockquote p:first-of-type::before,
+  article blockquote p:last-of-type::after {
+    content: none !important;
   }
 }
 
@@ -117,4 +127,19 @@ pre {
 
 .copy-code:active {
   @apply scale-90 transition-transform;
+}
+
+/* Image caption styling */
+img + em,
+img + i,
+img + _,
+.prose img + em,
+.prose img + i,
+.prose img + _ {
+  display: block;
+  text-align: center;
+  font-size: 0.875em; /* 14px if base is 16px */
+  color: #666;
+  margin-top: 0.5em;
+  margin-bottom: 1.5em;
 }
