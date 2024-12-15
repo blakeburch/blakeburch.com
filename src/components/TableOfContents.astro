@@ -2,6 +2,16 @@
 import TableOfContentsHeading from "./TableOfContentsHeading.astro";
 
 // https://kld.dev/building-table-of-contents/
+export interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  headings: Heading[];
+}
+
 const { headings } = Astro.props;
 
 interface TocItem {
