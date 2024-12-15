@@ -3,7 +3,7 @@ title: "blakeburch.com"
 description: "My first website, built with Astro, developed with Cursor, and deployed with CloudFlare Pages"
 date: "8/16/2024"
 repoURL: "https://github.com/blakeburch/blakeburch.com"
-tags: ['web development']
+tags: ['web development','production']
 slug: "my-first-website"
 ---
 ## Tech Used
