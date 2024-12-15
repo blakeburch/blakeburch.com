@@ -36,7 +36,7 @@ const readTime = entry.collection === "blog" ? readingTime(entry.body) : null;
         ))}
         {readTime && (
           <span class="text-xs text-neutral-500 dark:text-neutral-400">
-            {readTime}
+            {readTime.text}
           </span>
         )}
       </div>

@@ -50,6 +50,7 @@ const prevPost = getPrevPost();
 
 const post = Astro.props;
 const { Content, headings } = await post.render();
+const readTime = readingTime(post.body).text;
 ---
 
 <Layout title={post.data.title} description={post.data.description} tags={post.data.tags}>
@@ -64,7 +65,7 @@ const { Content, headings } = await post.render();
         </div>
         &bull;
         <div class="font-base text-sm">
-          {readingTime(post.body)}
+          {readTime}
         </div>
       </div>
       <h1 class="animate text-3xl font-semibold text-black dark:text-white">
