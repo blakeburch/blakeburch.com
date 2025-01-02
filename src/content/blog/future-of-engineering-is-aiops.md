@@ -40,7 +40,7 @@ With the basic definitions out of the way, let's dive into how I came to the con
 
 ## Exploring the World of AIOps
 
-In order to come to this conclusion, I had to put my theory to the test. That’s why I spent [30 days exclusively coding with ChatGPT](./coding-with-chatgpt). I needed to immerse myself in the idea to see if it was all hype or if there were any merits to a change in the way we develop code.
+In order to come to this conclusion, I had to put my theory to the test. That’s why I spent [30 days exclusively coding with ChatGPT](/blog/coding-with-chatgpt). I needed to immerse myself in the idea to see if it was all hype or if there were any merits to a change in the way we develop code.
 
 What I learned from this experience ultimately shaped my beliefs on what AIOps currently is and what it could be in the future.
 
