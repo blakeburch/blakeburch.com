@@ -4,56 +4,44 @@ title: "Now"
 description: "A page to document what I'm doing with my life right now."
 ---
 # What I'm Up To Now
-**Last Updated: 2024-12-15**
+**Last Updated: 2025-07-31**
 
-After 5 years of running my own company and ultimately shutting down commercial operations, I took some much needed time between August-November to reconnect with my curiosity.
+Around the end of February I joined a remote company, [Roboflow](https://www.roboflow.com), as an Analytics Engineer. It's been fun to focus on a completely new area of technology for me, computer vision. Now that I know how it works, it feels like every problem in the real world I face, I try discover how it could be solved with Vision AI.
 
-Recent time in therapy made me realize that I've been running on autopilot for a long time. I burnt out. I needed to make sure that I was optimizing for emotions, not obligations. If something made me happy or interested me, I ran with it. If it didn't, I let it go. The important part was to be curious, explore, and find that spark again.
+While ramping up at a new job, I decided that I no longer wanted to be running a data meetup, so I handed it over to good hands locally. I'm still on the hunt to fill an event void in the Austin, but I don't think I'm interested in running professional events at the moment.
 
-## How I Reset
-- Visited Japan and South Korea for the first time, spending almost 3 weeks exploring new cultures and great food.
-- Competed in the [Worlds Series of Board Gaming](https://wsbgvegas.com/). 
-  - I placed in the finals for [Great Western Trail](https://boardgamegeek.com/boardgame/193738/great-western-trail) and the semi-finals for [Brass: Birmingham](https://boardgamegeek.com/boardgame/224517/brass-birmingham).
-- Attended the [Rocket League World Championships](https://competitive.rocketleague.com/), a longtime dream of mine since the game first released.
-- Went to some great concerts.
-  - My first big EDM concert for [Zedd](https://www.zedd.net/). His light shows are amazing.
-  - Sang my heart out for my favorite band [Lawrence](https://lawrencetheband.com/).
-- Started making small musical jingles and posted a few to TikTok.
-- Completed two six-week classes of [improv](https://www.hideouttheatre.com/).
-- Signed up for a [bouldering gym](https://boulderingproject.com/market/austin-texas/) and tried to go weekly. My scraped up hands prevented that a few times.
-- Learned to grill. It's not that much different than regular cooking.
+Work has enabled me to travel much more than previously, which is a nice change of pace. In four months, I've been to Salt Lake City, Chicago, and New York. Part of it is because the company invites employees to hold "lighthouses" in remote locations and gives you the budget to do it. Part of it is because my wife gets a work benefit of 4 remote weeks per year, so we're trying to take advantage of it.
 
-## What I Learned
-- I care more about the mission of a company I'm working for than the exact work I'm doing. As an ex-founder, my capabilities are now pretty wide. Data, Product, or AI are the most interesting. IC vs Manager is irrelevant. I just want interesting work I can believe in.
-- Being placed in situations where I just have to figure things out helps me trust myself more and reaffirms a desire to learn more. Being abroad is great for this feeling.
-- Nothing makes me feel more grounded and connected than music and time with animals. I need to figure out how to get back to these roots.
-- I'm not sure if I want to run my own thing for a while. Solopreneurship will be isolating. I think it's healthy to explore other projects, build my skills, and slowly build up additional income stream while searching for roles, but I need to find local connections to sustain myself.
+We worked from Chicago and New York for an entire week. During the day, I explored new neighborhoods. During the evening, we went to great restaurants and local shows. In general, my learnings here are that I really like picking a neighborhood and flitting around. Feeling nomadic brings me back to how it felt while I was in Europe for 6 weeks.
+
+I finally had to retire my gaming PC of 8 years and purchase something new. Emotionally, it was hard for me because the gaming PC was a gift from my first boss. However, it's nice to finally be able to play a backlog of great games in Ultra quality.
 
 ## What I'm Doing Now
-- Looking for my next role! I want to lead product or data at a company whose mission I can get behind. If you have a small company that needs to scale with automation and strong data practices, let's talk!
-- Running a [weekly board game meetup](https://www.meetup.com/games-and-grub-austin/) at Pinthouse Brewing in South Austin.
-- Running a [monthly data meetup](https://www.meetup.com/austin-data-meetup/) in Austin.
-- Building out a job board by scraping ATS directly. While I want to build a better job board experience, I'm more interested in the insights that can come out of having access to this job data. More here soon!
-- Continuing with level 3 [improv](https://www.hideouttheatre.com/) classes.
+- Playing drums for an improvised musical called [Villain](https://hideouttheatre.com/shows/Villain).
+- Still running a [weekly board game meetup](https://www.meetup.com/games-and-grub-austin/) at Pinthouse Brewing in South Austin.
+- Continuing with level 6 [improv](https://www.hideouttheatre.com/) classes and starting singing improv.
+- Auditioning for local improv shows when the chance arises
+- Enjoying some great video games:
+  -  Lorelei and the Laser eyes was a great mysterious, escape room. 
+  -  Expedition 33 had phenomenal music and the world building engrossed me more than any game in the past few years.
 
+This list feels smaller than last time, which makes me feel bad. But on a whole, I've got consistently planned activities 3 out of 7 days each week. 
 
-## What I'm Exploring
-- How can I deepen my knowledge of AI and ML? I know when and how to use it, but I feel lacking when it comes to understanding the underlying tech. 
-- How do I create a schedule that optimizes for listening to my intuition? Exploring when I need to. Indulging curiosity when I have it. Taking breaks when I'm mentally done.
-- How can I have more involvement with animals?
-- What is it like to bike the roads in Austin?
-- What does camping or backpacking look like?
-- How can I find more ways to jam with other local musicians?
+## What I'm Thinking About or Exploring
+- How can I deepen my knowledge of AI and ML? I know when and how to use it, but I feel lacking when it comes to understanding the underlying tech.
+- What are fun niche projects to explore computer vision personally?
+- How autonomous can we really make AI agents?
 - How can I take my music ideas and make them more concrete through production tools?
-- How can I better embrace a [pathless path](https://pathlesspath.com/)?
-
-## What I'm Thinking About
-- What sucks about the job hunt? How can we humanize the experience?
-- How do you find internal satisfaction when faced with instability?
+- What does it look like to start a band?
+- As I get deeper into improv, how do I balance having fun with the self-critique to get better?
+- Now that I'm no longer in therapy, how do I find the time to make sure I'm doing ok?
+- How can I disconnect from work more? I tend to always default to "founder mode".
+- How can I bake in time to explore and learn new things?
 - What activities or events are missing from Austin? What can I do about it?
-- Are my data events even worth running? How do I make sure that I get good value out of the things I put my energy into?
-- How could I offer my skills for consulting work?
-- What can encourage me to write more frequently on personal and technical topics? I say I want to, but the past 3 months have shown that it's not high on my list.
+- What can encourage me to write more frequently on personal and technical topics? I say I want to, but history has shown that it's not high on my list.
 
 ---
 This page is an inspiration from [Derek Sivers](https://sive.rs/now) and follows the principles listed on [nownownow](https://nownownow.com/about).
+
+See an archive of this page:
+- [2024-12-15](now-2024-12-15)
