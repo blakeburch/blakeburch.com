@@ -44,4 +44,4 @@ This list feels smaller than last time, which makes me feel bad. But on a whole,
 This page is an inspiration from [Derek Sivers](https://sive.rs/now) and follows the principles listed on [nownownow](https://nownownow.com/about).
 
 See an archive of this page:
-- [2024-12-15](now-2024-12-15.md)
+- [2024-12-15](now-2024-12-15)
