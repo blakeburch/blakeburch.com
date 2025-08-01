@@ -24,8 +24,8 @@ In my free time, I geek out about tech trends, indie video games & board games. 
 I'm slowly converting from an introvert to an extrovert. As a result, I'm seeking more and more opportunities to go out, meet new people, and build up the local community. That's why I run [weekly board game nights](https://www.meetup.com/games-and-grub-austin/) and [monthly data meetups](https://www.meetup.com/austin-data-meetup/).
 
 Want to know if our interests overlap?
-- **Favorite Board Games** 🎲: Food Chain Magnate, Terra Mystica, Pipeline, Everdell, Race for the Galaxy
-- **Favorite Video Games** 🎮: Celeste, Hollow Knight, Outer Wilds, Neon White, The Witcher 3, NieR: Automata
+- **Favorite Board Games** 🎲: Food Chain Magnate, Age of Innovation, Pipeline, Everdell, Race for the Galaxy, Ark Nova, Brass Birmingham
+- **Favorite Video Games** 🎮: Celeste, Hollow Knight, Outer Wilds, Neon White, The Witcher 3, NieR: Automata, Clair Obscur: Expedition 33
 - **Favorite TV Shows** 📺: Battlestar Galactica, Black Mirror, Breaking Bad, Bojack Horseman, Atlanta
 - **Favorite Anime** 💢: Avatar: The Last Airbender, Gurren Lagann, Code Geass
 - **Favorite Books** 📚: Project Hail Mary, Red Rising Trilogy, The Dark Forest
