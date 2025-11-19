@@ -4,44 +4,53 @@ title: "Now"
 description: "A page to document what I'm doing with my life right now."
 ---
 # What I'm Up To Now
-**Last Updated: 2025-07-31**
+**Last Updated: 2025-11-19**
 
-Around the end of February I joined a remote company, [Roboflow](https://www.roboflow.com), as an Analytics Engineer. It's been fun to focus on a completely new area of technology for me, computer vision. Now that I know how it works, it feels like every problem in the real world I face, I try discover how it could be solved with Vision AI.
+## Work
+In November, Roboflow and I parted ways. I'm glad to have gained a new perspective on computer vision use cases and wish the team the best of luck.
 
-While ramping up at a new job, I decided that I no longer wanted to be running a data meetup, so I handed it over to good hands locally. I'm still on the hunt to fill an event void in the Austin, but I don't think I'm interested in running professional events at the moment.
+Through the experience, I gained a better perspective about what I value and what I want out of my next role:
+- I want an advocate that challenges me with large problems and the task of "go figure it out".
+- I want to be able to lead and coach. I enjoy strategizing, building a plan, and orchestrating the work to accomplish a much larger goal more than being 100% responsible for the implementation.
+- I _think_ I enjoy product work more than data work. That doesn't mean that I don't like data work - I just see it as a means to an end to power effective internal automation or product development.
+- I want to work with teams that value long-term thinking and take pride in crafting well-built, intentionally-designed solutions.
+- I do my best work when I'm deeply connected to the people I'm working with and invested in them as individuals, inside and outside of work. Relationships matter a lot.
 
-Work has enabled me to travel much more than previously, which is a nice change of pace. In four months, I've been to Salt Lake City, Chicago, and New York. Part of it is because the company invites employees to hold "lighthouses" in remote locations and gives you the budget to do it. Part of it is because my wife gets a work benefit of 4 remote weeks per year, so we're trying to take advantage of it.
+I'm open to new roles, so if my experience and interests seem like a fit, please reach out!
 
-We worked from Chicago and New York for an entire week. During the day, I explored new neighborhoods. During the evening, we went to great restaurants and local shows. In general, my learnings here are that I really like picking a neighborhood and flitting around. Feeling nomadic brings me back to how it felt while I was in Europe for 6 weeks.
+## Travel
+In October, my wife and I visited Italy for 2.5 weeks. We traveled from north to south by train, stopping in Venice, Florence, Rome, and Naples. Overall, the experience in Italy was pleasant.
 
-I finally had to retire my gaming PC of 8 years and purchase something new. Emotionally, it was hard for me because the gaming PC was a gift from my first boss. However, it's nice to finally be able to play a backlog of great games in Ultra quality.
+Naples itself (not Capri or the Amalfi coast) felt the most authentic and charming of all the regions, despite our many tour guides along the way that were surprised we were heading there and warning us that it was "wild" and "rough". The [Venice Biennale](https://www.labiennale.org/en) for Architecture was probably my favorite surprise of the entire trip. Walking around in Rome and just seeing ancient history alongside modernity was surreal. In general, the art in Italy was incredible and sparked so many new ideas for me to work on.
 
-## What I'm Doing Now
-- Playing drums for an improvised musical called [Villain](https://hideouttheatre.com/shows/Villain).
+However, it felt like a large portion of Italy catered far too much to the swarm of tourists. I eventually got exhausted with the Italian food and other cuisine options were more difficult to come by (I've never really had that happen on a trip). Since we had been in European countries many times before, I think Italy didn't quite come with the wonder and amazement, but rather "regularity" - a very privileged thing to say. I came away feeling that because many Americans have their first overseas experience in France or Italy, they experience a lot more wonder in those areas which comes with a bit of nostalgia. As with every international trip, I took daily notes in my Remarkable to relive and remember my excursions down the road. I've done this for the past 4 years and think it's finally time to start revisiting them for insights and comparisons.
+
+As I update this, I'm on my first ever Amtrak ride going to my first ever BGG Con - Fall Edition. 
+- I've gone to the spring convention for nearly 10 years, so it will be interesting to compare the two.
+- I've been on plenty of trains around the world so I'm curious how the experience will compare.
+
+## What I'm Thinking About
+In general, I'm trying to plan out what I want for myself in 2026 and beyond. An idea I'm floating is to optimize my time for "enjoyment-based income" by the time I'm 40. Thoughts so far:
+- Since July, I've played drums for three different improv shows - "Villain", "An Evening With..." and "U.S.S. Improvise". I'd love to continue playing for more groups and have a long-term goal of getting to play with Zach and Jess of [Offbook](https://www.thezachandthejess.com/podcast-off-book.html), so if you have any opportunities - please contact me!
+- I'm interested in taking a stab at wedding gigs. I think it would be fun to play music more for some side income.
+- I may take up assistant teaching for some improv classes.
+- I want to start my own musical improv troupe with monthly shows and a full marketing plan for building up a social following.
+- I want to start creating and posting music online. Small jingles, full songs, you name it.
+- I want to create a few smaller modern art pieces! My favorite idea that borders on kitschy is creating 3d art pieces with dice.
+
+So many options, so the main thing is just starting, seeing what sticks, and what sparks the most enjoyment.
+
+## Other Activities
 - Still running a [weekly board game meetup](https://www.meetup.com/games-and-grub-austin/) at Pinthouse Brewing in South Austin.
-- Continuing with level 6 [improv](https://www.hideouttheatre.com/) classes and starting singing improv.
+- Continuing with level 3 of [musical improv](https://www.hideouttheatre.com/) classes.
 - Auditioning for local improv shows when the chance arises
-- Enjoying some great video games:
-  -  Lorelei and the Laser eyes was a great mysterious, escape room. 
-  -  Expedition 33 had phenomenal music and the world building engrossed me more than any game in the past few years.
-
-This list feels smaller than last time, which makes me feel bad. But on a whole, I've got consistently planned activities 3 out of 7 days each week. 
-
-## What I'm Thinking About or Exploring
-- How can I deepen my knowledge of AI and ML? I know when and how to use it, but I feel lacking when it comes to understanding the underlying tech.
-- What are fun niche projects to explore computer vision personally?
-- How autonomous can we really make AI agents?
-- How can I take my music ideas and make them more concrete through production tools?
-- What does it look like to start a band?
-- As I get deeper into improv, how do I balance having fun with the self-critique to get better?
-- Now that I'm no longer in therapy, how do I find the time to make sure I'm doing ok?
-- How can I disconnect from work more? I tend to always default to "founder mode".
-- How can I bake in time to explore and learn new things?
-- What activities or events are missing from Austin? What can I do about it?
-- What can encourage me to write more frequently on personal and technical topics? I say I want to, but history has shown that it's not high on my list.
+- Enjoying some great entertainment:
+  -  Bashing my head against the bosses in Silksong.
+  -  Watching Pluribus in awe at the idea of a connected "hivemind".
 
 ---
 This page is an inspiration from [Derek Sivers](https://sive.rs/now) and follows the principles listed on [nownownow](https://nownownow.com/about).
 
 See an archive of this page:
+- [2025-07-31](now-2025-07-31)
 - [2024-12-15](now-2024-12-15)
