@@ -48,4 +48,12 @@ export const SOCIALS: Socials = [
     NAME: "LinkedIn",
     HREF: "https://www.linkedin.com/in/blakeburch",
   },
+  {
+    NAME: "TikTok",
+    HREF: "https://www.tiktok.com/@blakeburch_",
+  },
+  {
+    NAME: "YouTube",
+    HREF: "https://www.youtube.com/@blakeburch",
+  },
 ];
