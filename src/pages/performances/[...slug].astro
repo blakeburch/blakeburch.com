@@ -1,0 +1,127 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import FormattedDate from "@components/FormattedDate.astro";
+import {
+  formatPerformanceDateRange,
+  getPerformanceOpeningDate,
+  readingTime,
+  sortPerformanceDates,
+} from "@lib/utils";
+import BackToPrevious from "@components/BackToPrevious.astro";
+import Link from "@components/Link.astro";
+import TableOfContents from "@components/TableOfContents.astro";
+import Tag from "@components/Tag.astro";
+import { instrumentIcons, formatInstrumentLabel } from "@utils/instruments";
+
+export async function getStaticPaths() {
+  const performances = (await getCollection("performances"))
+    .filter((performance) => !performance.data.draft)
+    .sort(
+      (a, b) =>
+        getPerformanceOpeningDate(b.data.dates).valueOf() -
+        getPerformanceOpeningDate(a.data.dates).valueOf(),
+    );
+  return performances.map((performance) => ({
+    params: { slug: performance.slug },
+    props: performance,
+  }));
+}
+type Props = CollectionEntry<"performances">;
+
+const performance = Astro.props;
+const { Content, headings } = await performance.render();
+const sortedDates = sortPerformanceDates(performance.data.dates);
+const dateRange = formatPerformanceDateRange(performance.data.dates);
+---
+
+<Layout title={performance.data.title} description={performance.data.description} tags={performance.data.tags}>
+  <Container>
+    <div class="animate">
+      <BackToPrevious href="/performances">Back to performances</BackToPrevious>
+    </div>
+    <div class="animate my-10 space-y-1">
+      <div class="flex flex-wrap items-center gap-1.5">
+        <div class="font-base text-sm">
+          {sortedDates.length === 1 ? (
+            <FormattedDate date={sortedDates[0]} />
+          ) : (
+            dateRange
+          )}
+        </div>
+        {
+          performance.data.venue && (
+            <>
+              &bull;
+              <div class="font-base text-sm">
+                {performance.data.venue}
+              </div>
+            </>
+          )
+        }
+        &bull;
+        <div class="font-base text-sm">
+          {readingTime(performance.body).text}
+        </div>
+      </div>
+      <h1 class="text-3xl font-semibold text-black dark:text-white">
+        {performance.data.title}
+      </h1>
+      <p class="mt-2 text-lg">{performance.data.description}</p>
+      {
+        sortedDates.length > 1 && (
+          <div class="mt-4">
+            <h2 class="text-sm font-semibold text-black dark:text-white">
+              {sortedDates.length} performances
+            </h2>
+            <ul class="mt-2 space-y-1 text-sm text-neutral-700 dark:text-neutral-300">
+              {sortedDates.map((date) => (
+                <li>
+                  <FormattedDate date={date} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+      {
+        (performance.data.videoURL || performance.data.audioURL || performance.data.eventURL) && (
+          <nav class="mt-4 flex gap-1">
+            {performance.data.videoURL && (
+              <Link href={performance.data.videoURL}>
+                video
+              </Link>
+            )}
+            {performance.data.audioURL && (
+              <Link href={performance.data.audioURL}>
+                audio
+              </Link>
+            )}
+            {performance.data.eventURL && (
+              <Link href={performance.data.eventURL}>
+                event
+              </Link>
+            )}
+          </nav>
+        )
+      }
+      <div class="mt-4 flex flex-wrap items-center gap-2">
+        {performance.data.instruments && performance.data.instruments.map((instrument: string) => (
+          <Tag
+            name={instrument}
+            icon={instrumentIcons[instrument]}
+            label={formatInstrumentLabel(instrument)}
+          />
+        ))}
+        {performance.data.tags && performance.data.tags.map((tag: string) => (
+          <Tag name={tag} />
+        ))}
+      </div>
+    </div>
+    <TableOfContents headings={headings} />
+    <article class="animate">
+      <Content />
+    </article>
+  </Container>
+</Layout>

@@ -1,0 +1,89 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import ArrowCard from "@components/ArrowCard.astro";
+import { PERFORMANCES } from "@consts";
+import { getPerformanceOpeningDate, isUpcomingPerformance } from "@lib/utils";
+
+const allPerformances = await getCollection("performances");
+const nonDraftPerformances = allPerformances.filter(
+  (performance) => !performance.data.draft,
+);
+
+const upcomingPerformances = nonDraftPerformances
+  .filter((performance) => isUpcomingPerformance(performance.data.dates))
+  .sort(
+    (a, b) =>
+      getPerformanceOpeningDate(a.data.dates).valueOf() -
+      getPerformanceOpeningDate(b.data.dates).valueOf(),
+  );
+
+const pastPerformances = nonDraftPerformances
+  .filter((performance) => !isUpcomingPerformance(performance.data.dates))
+  .sort(
+    (a, b) =>
+      getPerformanceOpeningDate(b.data.dates).valueOf() -
+      getPerformanceOpeningDate(a.data.dates).valueOf(),
+  );
+
+type Acc = {
+  [year: string]: CollectionEntry<"performances">[];
+};
+
+const performancesByYear = pastPerformances.reduce((acc: Acc, performance) => {
+  const year = getPerformanceOpeningDate(performance.data.dates)
+    .getUTCFullYear()
+    .toString();
+  if (!acc[year]) {
+    acc[year] = [];
+  }
+  acc[year].push(performance);
+  return acc;
+}, {});
+
+const years = Object.keys(performancesByYear).sort((a, b) => parseInt(b) - parseInt(a));
+---
+
+<Layout title={PERFORMANCES.TITLE} description={PERFORMANCES.DESCRIPTION}>
+  <Container>
+    <aside data-pagefind-ignore>
+      <div class="space-y-10" id="performances-list">
+        {upcomingPerformances.length > 0 && (
+          <div class="mb-10 upcoming-section">
+            <h2 class="mb-4 flex items-center gap-2 text-2xl font-bold text-emerald-600 dark:text-emerald-400">
+              <span class="relative flex h-2.5 w-2.5">
+                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500"></span>
+              </span>
+              Upcoming
+            </h2>
+            <div class="space-y-4">
+              {upcomingPerformances.map((performance) => (
+                <div class="performance-item" data-tags={performance.data.tags?.join(',')}>
+                  <ArrowCard entry={performance} upcoming />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+        {years.length === 0 && upcomingPerformances.length === 0 ? (
+          <p class="text-neutral-600 dark:text-neutral-400">No performances yet.</p>
+        ) : (
+          years.map((year) => (
+            <div class="mb-10 year-section">
+              <h2 class="text-2xl font-bold mb-4">{year}</h2>
+              <div class="space-y-4">
+                {performancesByYear[year].map((performance) => (
+                  <div class="performance-item" data-tags={performance.data.tags?.join(',')}>
+                    <ArrowCard entry={performance} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        )}
+      </div>
+    </aside>
+  </Container>
+</Layout>

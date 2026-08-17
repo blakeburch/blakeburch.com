@@ -6,7 +6,8 @@ export const SITE: Site = {
   EMAIL: "hello@blakeburch.com",
   NUM_POSTS_ON_HOMEPAGE: 5,
   NUM_PROJECTS_ON_HOMEPAGE: 3,
-  NUM_SPEAKING_ON_HOMEPAGE: 3
+  NUM_SPEAKING_ON_HOMEPAGE: 3,
+  NUM_PERFORMANCES_ON_HOMEPAGE: 3,
 };
 
 export const HOME: Metadata = {
@@ -22,6 +23,11 @@ export const ABOUT: Metadata = {
 export const SPEAKING: Metadata = {
   TITLE: "Speaking",
   DESCRIPTION: "A collection of my speaking engagements and podcast appearances.",
+};
+
+export const PERFORMANCES: Metadata = {
+  TITLE: "Performances",
+  DESCRIPTION: "A collection of my musical performances and live shows.",
 };
 
 export const BLOG: Metadata = {

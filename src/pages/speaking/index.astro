@@ -18,7 +18,7 @@ type Acc = {
 };
 
 const speakingByYear = speakingEvents.reduce((acc: Acc, event) => {
-  const year = event.data.date.getFullYear().toString();
+  const year = event.data.date.getUTCFullYear().toString();
   if (!acc[year]) {
     acc[year] = [];
   }

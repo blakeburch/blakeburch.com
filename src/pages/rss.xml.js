@@ -1,6 +1,15 @@
 import rss from "@astrojs/rss";
 import { SITE } from "@consts";
 import { getCollection } from "astro:content";
+import { getPerformanceOpeningDate } from "@lib/utils";
+
+function getItemDate(item) {
+  if (item.collection === "performances") {
+    return getPerformanceOpeningDate(item.data.dates);
+  }
+
+  return item.data.date;
+}
 
 export async function GET(context) {
   const blog = (await getCollection("blog")).filter((post) => !post.data.draft);
@@ -13,8 +22,12 @@ export async function GET(context) {
     (speaker) => !speaker.data.draft,
   );
 
-  const items = [...blog, ...projects, ...speaking].sort(
-    (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf(),
+  const performances = (await getCollection("performances")).filter(
+    (performance) => !performance.data.draft,
+  );
+
+  const items = [...blog, ...projects, ...speaking, ...performances].sort(
+    (a, b) => getItemDate(b).valueOf() - getItemDate(a).valueOf(),
   );
 
   return rss({
@@ -24,7 +37,7 @@ export async function GET(context) {
     items: items.map((item) => ({
       title: item.data.title,
       description: item.data.description,
-      pubDate: item.data.date,
+      pubDate: getItemDate(item),
       link: `/${item.collection}/${item.slug}/`,
       content_type: item.collection, // Add the content-type field
       tags: item.data.tags || [], // Add the tags field

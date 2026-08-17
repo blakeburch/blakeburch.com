@@ -5,6 +5,7 @@ import { SITE, HOME, SOCIALS } from "@consts";
 import ArrowCard from "@components/ArrowCard.astro";
 import Link from "@components/Link.astro";
 import { getCollection } from "astro:content";
+import { getPerformanceOpeningDate } from "@lib/utils";
 import type { CollectionEntry } from "astro:content";
 
 const blog = (await getCollection("blog"))
@@ -25,12 +26,27 @@ const speaking: CollectionEntry<"speaking">[] = (
   .filter((speaker) => !speaker.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, SITE.NUM_SPEAKING_ON_HOMEPAGE);
+
+const performances: CollectionEntry<"performances">[] = (
+  await getCollection("performances")
+)
+  .filter((performance) => !performance.data.draft)
+  .sort(
+    (a, b) =>
+      getPerformanceOpeningDate(b.data.dates).valueOf() -
+      getPerformanceOpeningDate(a.data.dates).valueOf(),
+  )
+  .slice(0, SITE.NUM_PERFORMANCES_ON_HOMEPAGE);
 ---
 
 <Layout title={HOME.TITLE} description={HOME.DESCRIPTION}>
   <Container>
     <aside data-pagefind-ignore>
-      <img src="/headshot_small.jpeg" alt="Blake Burch" class="rounded-full w-48 h-48 ml-4 mb-4 object-cover" />
+      <img
+        src="/blake-profile-small.jpg"
+        alt="Blake Burch"
+        class="mb-4 ml-4 h-48 w-48 rounded-full object-cover"
+      />
       <h1 class="animate font-semibold text-black dark:text-white">
         Hey there! 👋 I'm Blake.
       </h1>
@@ -38,33 +54,51 @@ const speaking: CollectionEntry<"speaking">[] = (
         <section>
           <article class="space-y-4">
             <span class="animate">
-              <p>By day, I'm a Technical Product Leader for AI & Data Platforms.</p>
-              <p>By night, I'm a musician/songwriter, a board game connoisseur, and an improv aficionado.</p>
               <p>
-                Whether you already know me, or want to get a better idea of who I am, this website serves as a central hub
-                for everything related to my life.  I kept it purposefully simple. Function over form.
-                </p>
-                <p>
-                Since 2024, I share my work, thoughts, and ideas here. I want to be open and share more freely - to get out of my head and into the world. 
-                At the same time, I want to prioritize making deeper connections both locally and globally.
-               
+                By day, I'm a Technical Product Leader for AI & Data Platforms.
               </p>
-              
               <p>
-              <li>Want to learn more <Link href="about/">about me</Link>?</li>
-              <li>Want to know what I'm up to <Link href="now/">now</Link>?</li>
-              <li>Want to explore my <Link href="blog/">thoughts</Link>?</li>
-              <li>Want to know what I've <Link href="projects/">worked on</Link>?</li>
-              <li>Want to hear me <Link href="speaking/">talk</Link> about something interesting?</li>
-              <li>Looking for something specific? Just type <kbd>/</kbd> to search.</li>
-            </p>
-            <p>
-              
-            </p>
-            <p>
-              Hopefully, you'll find something here that interests you. If you do, please reach out! It would make my day.
-            </p>
+                By night, I'm a musician/songwriter, a board game connoisseur,
+                and an improv aficionado.
+              </p>
+              <p>
+                Whether you already know me, or want to get a better idea of who
+                I am, this website serves as a central hub for everything
+                related to my life. I kept it purposefully simple. Function over
+                form.
+              </p>
+              <p>
+                I'm currently at an inflection point where more time and effort
+                is being poured into creative endeavors. This site serves as a
+                mix of both professional and creative works.
+              </p>
 
+              <p>
+                <li>Want to learn more <Link href="about/">about me</Link>?</li>
+                <li>
+                  Want to know what I'm up to <Link href="now/">now</Link>?
+                </li>
+                <li>Want to explore my <Link href="blog/">thoughts</Link>?</li>
+                <li>
+                  Want to know what I've <Link href="projects/">worked on</Link
+                  >?
+                </li>
+                <li>
+                  Want to hear me <Link href="speaking/">talk</Link> about something
+                  interesting?
+                </li>
+                <li>
+                  Want to see me <Link href="performances/">perform</Link> live?
+                </li>
+                <li>
+                  Looking for something specific? Just type <kbd>/</kbd> to search.
+                </li>
+              </p>
+              <p></p>
+              <p>
+                Hopefully, you'll find something here that interests you. If you
+                do, please reach out! It would make my day.
+              </p>
             </span>
           </article>
         </section>
@@ -123,7 +157,25 @@ const speaking: CollectionEntry<"speaking">[] = (
           </ul>
         </section>
 
-        
+        {
+          performances.length > 0 && (
+            <section class="animate space-y-6">
+              <div class="flex flex-wrap items-center justify-between gap-y-2">
+                <h2 class="font-semibold text-black dark:text-white">
+                  Recent Performances
+                </h2>
+                <Link href="/performances"> See all performances </Link>
+              </div>
+              <ul class="not-prose flex flex-col gap-4">
+                {performances.map((performance) => (
+                  <li>
+                    <ArrowCard entry={performance} />
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )
+        }
       </div>
     </aside>
   </Container>

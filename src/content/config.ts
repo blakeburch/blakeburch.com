@@ -38,4 +38,20 @@ const speaking = defineCollection({
   }),
 });
 
-export const collections = { blog, projects, speaking};
+const performances = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    dates: z.array(z.coerce.date()).min(1),
+    venue: z.string().optional(),
+    instruments: z.array(z.string()).optional(),
+    draft: z.boolean().optional(),
+    videoURL: z.string().optional(),
+    audioURL: z.string().optional(),
+    eventURL: z.string().optional(),
+    tags: z.array(z.string()).optional(),
+  }),
+});
+
+export const collections = { blog, projects, speaking, performances };

@@ -7,6 +7,13 @@ export const tagColors: { [key: string]: string } = {
   'bytes': 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100',
   'data': "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100",
   'action': "bg-fuchsia-100 text-fuchsia-800 dark:bg-fuchsia-900 dark:text-fuchsia-100",
-  'musings': 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-100'
+  'musings': 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-100',
+  'improv': 'bg-green-200 text-green-800 dark:bg-green-800 dark:text-green-200',
+  'musical': 'bg-blue-200 text-blue-800 dark:bg-blue-800 dark:text-blue-200',
+  'choir': 'bg-orange-200 text-orange-800 dark:bg-orange-800 dark:text-orange-200',
+  'percussion': 'bg-purple-200 text-purple-800 dark:bg-purple-800 dark:text-purple-200',
+  'piano': 'bg-purple-200 text-purple-800 dark:bg-purple-800 dark:text-purple-200',
+  'vocal - tenor': 'bg-purple-200 text-purple-800 dark:bg-purple-800 dark:text-purple-200',
+  'vocal - bass': 'bg-purple-200 text-purple-800 dark:bg-purple-800 dark:text-purple-200'
   // Add more tag colors as needed
 };
