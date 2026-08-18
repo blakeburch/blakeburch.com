@@ -6,37 +6,39 @@ import { SITE } from "@consts";
 
 <header transition:persist>
   <Container>
-    <div class="flex flex-wrap justify-between gap-y-2">
+    <div class="flex flex-wrap items-center justify-between gap-y-2">
       <Link href="/" underline={false}>
         <div class="font-semibold">
           {SITE.TITLE}&nbsp;
         </div>
       </Link>
-      <nav class="flex items-center gap-1 text-sm">
-        <Link href="/about">about</Link>
-        <span>
-          {`/`}
-        </span>
-        <Link href="/now">now</Link>
-        <span>
-          {`/`}
-        </span>
-        <Link href="/blog">blog</Link>
-        <span>
-          {`/`}
-        </span>
-        <Link href="/projects">projects</Link>
-        <span>
-          {`/`}
-        </span>
-        <Link href="/speaking">speaking</Link>
-        <span>
-          {`/`}
-        </span>
-        <Link href="/performances">performances</Link>
-        <span>
-          {`/`}
-        </span>
+      <div class="flex items-center gap-2">
+        <nav class="hidden items-center gap-1 text-sm sm:flex">
+          <Link href="/about">about</Link>
+          <span>
+            {`/`}
+          </span>
+          <Link href="/now">now</Link>
+          <span>
+            {`/`}
+          </span>
+          <Link href="/blog">blog</Link>
+          <span>
+            {`/`}
+          </span>
+          <Link href="/projects">projects</Link>
+          <span>
+            {`/`}
+          </span>
+          <Link href="/speaking">speaking</Link>
+          <span>
+            {`/`}
+          </span>
+          <Link href="/performances">performances</Link>
+          <span>
+            {`/`}
+          </span>
+        </nav>
         <button
           id="magnifying-glass"
           aria-label="Search"
@@ -56,7 +58,88 @@ import { SITE } from "@consts";
           >
           &nbsp;Search
         </button>
-      </nav>
+        <button
+          id="menu-toggle"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          class="flex items-center justify-center rounded border border-black/15 bg-neutral-100 p-1.5 transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black focus-visible:bg-black/5 focus-visible:text-black dark:border-white/20 dark:bg-neutral-900 dark:hover:bg-white/5 dark:hover:text-white dark:focus-visible:bg-white/5 dark:focus-visible:text-white sm:hidden"
+        >
+          <svg
+            id="menu-icon-open"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            class="size-4 fill-none stroke-current stroke-2"
+          >
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <svg
+            id="menu-icon-close"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            class="hidden size-4 fill-none stroke-current stroke-2"
+          >
+            <line x1="5" y1="5" x2="19" y2="19"></line>
+            <line x1="19" y1="5" x2="5" y2="19"></line>
+          </svg>
+        </button>
+      </div>
     </div>
+    <nav
+      id="mobile-menu"
+      class="hidden flex-col gap-3 pb-3 pt-3 text-sm sm:hidden"
+    >
+      <Link href="/about">about</Link>
+      <Link href="/now">now</Link>
+      <Link href="/blog">blog</Link>
+      <Link href="/projects">projects</Link>
+      <Link href="/speaking">speaking</Link>
+      <Link href="/performances">performances</Link>
+    </nav>
   </Container>
 </header>
+
+<script is:inline>
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const menuIconOpen = document.getElementById("menu-icon-open");
+  const menuIconClose = document.getElementById("menu-icon-close");
+
+  function closeMobileMenu() {
+    mobileMenu?.classList.remove("flex");
+    mobileMenu?.classList.add("hidden");
+    menuIconOpen?.classList.remove("hidden");
+    menuIconClose?.classList.add("hidden");
+    menuToggle?.setAttribute("aria-expanded", "false");
+  }
+
+  function openMobileMenu() {
+    mobileMenu?.classList.remove("hidden");
+    mobileMenu?.classList.add("flex");
+    menuIconOpen?.classList.add("hidden");
+    menuIconClose?.classList.remove("hidden");
+    menuToggle?.setAttribute("aria-expanded", "true");
+  }
+
+  menuToggle?.addEventListener("click", () => {
+    if (mobileMenu?.classList.contains("hidden")) {
+      openMobileMenu();
+    } else {
+      closeMobileMenu();
+    }
+  });
+
+  mobileMenu?.addEventListener("click", (event) => {
+    if (event.target instanceof HTMLElement && event.target.closest("a")) {
+      closeMobileMenu();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMobileMenu();
+    }
+  });
+</script>
