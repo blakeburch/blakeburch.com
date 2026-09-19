@@ -6,8 +6,8 @@ import FormattedDate from "@components/FormattedDate.astro";
 import {
   formatPerformanceDateRange,
   getPerformanceOpeningDate,
+  isUpcomingPerformance,
   readingTime,
-  sortPerformanceDates,
 } from "@lib/utils";
 import BackToPrevious from "@components/BackToPrevious.astro";
 import Link from "@components/Link.astro";
@@ -32,8 +32,12 @@ type Props = CollectionEntry<"performances">;
 
 const performance = Astro.props;
 const { Content, headings } = await performance.render();
-const sortedDates = sortPerformanceDates(performance.data.dates);
+const { showings, venues } = performance.data;
 const dateRange = formatPerformanceDateRange(performance.data.dates);
+// Shows can move between venues, each with its own event page. Only use the
+// single header link when every showing shares one URL; otherwise link per date.
+const eventURLs = [...new Set(showings.map((s) => s.eventURL).filter(Boolean))];
+const singleEventURL = eventURLs.length === 1 ? eventURLs[0] : undefined;
 ---
 
 <Layout title={performance.data.title} description={performance.data.description} tags={performance.data.tags}>
@@ -44,18 +48,18 @@ const dateRange = formatPerformanceDateRange(performance.data.dates);
     <div class="animate my-10 space-y-1">
       <div class="flex flex-wrap items-center gap-1.5">
         <div class="font-base text-sm">
-          {sortedDates.length === 1 ? (
-            <FormattedDate date={sortedDates[0]} />
+          {showings.length === 1 ? (
+            <FormattedDate date={showings[0].date} />
           ) : (
             dateRange
           )}
         </div>
         {
-          performance.data.venue && (
+          venues.length > 0 && (
             <>
               &bull;
               <div class="font-base text-sm">
-                {performance.data.venue}
+                {venues.join(" & ")}
               </div>
             </>
           )
@@ -70,15 +74,27 @@ const dateRange = formatPerformanceDateRange(performance.data.dates);
       </h1>
       <p class="mt-2 text-lg">{performance.data.description}</p>
       {
-        sortedDates.length > 1 && (
+        showings.length > 1 && (
           <div class="mt-4">
             <h2 class="text-sm font-semibold text-black dark:text-white">
-              {sortedDates.length} performances
+              {showings.length} performances
             </h2>
             <ul class="mt-2 space-y-1 text-sm text-neutral-700 dark:text-neutral-300">
-              {sortedDates.map((date) => (
-                <li>
-                  <FormattedDate date={date} />
+              {showings.map((showing) => (
+                <li class="flex flex-wrap items-center gap-1.5">
+                  <FormattedDate date={showing.date} />
+                  {venues.length > 1 && showing.venue && (
+                    <>
+                      &bull;
+                      <span>{showing.venue}</span>
+                    </>
+                  )}
+                  {!singleEventURL && showing.eventURL && isUpcomingPerformance([showing.date]) && (
+                    <>
+                      &bull;
+                      <Link href={showing.eventURL}>tickets</Link>
+                    </>
+                  )}
                 </li>
               ))}
             </ul>
@@ -86,7 +102,7 @@ const dateRange = formatPerformanceDateRange(performance.data.dates);
         )
       }
       {
-        (performance.data.videoURL || performance.data.audioURL || performance.data.eventURL) && (
+        (performance.data.videoURL || performance.data.audioURL || singleEventURL) && (
           <nav class="mt-4 flex gap-1">
             {performance.data.videoURL && (
               <Link href={performance.data.videoURL}>
@@ -98,8 +114,8 @@ const dateRange = formatPerformanceDateRange(performance.data.dates);
                 audio
               </Link>
             )}
-            {performance.data.eventURL && (
-              <Link href={performance.data.eventURL}>
+            {singleEventURL && (
+              <Link href={singleEventURL}>
                 event
               </Link>
             )}

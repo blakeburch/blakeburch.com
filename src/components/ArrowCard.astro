@@ -17,8 +17,9 @@ const { entry, upcoming = false } = Astro.props;
 const tags = entry.data.tags || [];
 const displayTags = tags.slice(0, 3); // Display up to 3 tags
 const readTime = entry.collection === "blog" ? readingTime(entry.body) : null;
+const venues = entry.collection === "performances" ? entry.data.venues : [];
 const venue =
-  entry.collection === "performances" ? entry.data.venue : undefined;
+  venues.length > 2 ? "multiple venues" : venues.join(" & ") || undefined;
 const performanceDates =
   entry.collection === "performances"
     ? formatPerformanceDateSummary(entry.data.dates)
