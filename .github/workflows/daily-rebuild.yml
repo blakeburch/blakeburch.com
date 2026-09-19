@@ -1,0 +1,25 @@
+name: Daily rebuild
+
+# The site is static, so "upcoming" performances are only evaluated at build
+# time. Trigger a Cloudflare Pages build shortly after midnight Central each
+# day so shows move from Upcoming to past on time.
+
+on:
+  schedule:
+    # 06:05 UTC = 12:05am CST / 1:05am CDT
+    - cron: "5 6 * * *"
+  workflow_dispatch:
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Cloudflare Pages deploy hook
+        env:
+          DEPLOY_HOOK_URL: ${{ secrets.CLOUDFLARE_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$DEPLOY_HOOK_URL" ]; then
+            echo "CLOUDFLARE_DEPLOY_HOOK_URL secret is not set" >&2
+            exit 1
+          fi
+          curl --fail --silent --show-error -X POST "$DEPLOY_HOOK_URL"

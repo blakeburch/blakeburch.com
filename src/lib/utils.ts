@@ -36,10 +36,27 @@ export function getPerformanceClosingDate(dates: Date[]) {
   return sorted[sorted.length - 1];
 }
 
+// Performances are in Austin, so "today" is the local calendar date there.
+// Frontmatter dates parse as UTC midnight, so express today the same way.
+const PERFORMANCE_TIME_ZONE = "America/Chicago";
+
+function getTodayInPerformanceTimeZone() {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: PERFORMANCE_TIME_ZONE,
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+  }).formatToParts(new Date());
+  const part = (type: string) =>
+    Number(parts.find((p) => p.type === type)?.value);
+  return Date.UTC(part("year"), part("month") - 1, part("day"));
+}
+
 export function isUpcomingPerformance(dates: Date[]) {
-  const now = new Date();
-  const todayUTC = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
-  return getPerformanceClosingDate(dates).valueOf() >= todayUTC;
+  return (
+    getPerformanceClosingDate(dates).valueOf() >=
+    getTodayInPerformanceTimeZone()
+  );
 }
 
 export function formatPerformanceDateSummary(dates: Date[]) {
