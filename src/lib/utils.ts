@@ -85,6 +85,17 @@ export function isUpcomingPerformance(dates: Date[]) {
   );
 }
 
+// The soonest date that hasn't passed yet (falls back to the closing date for
+// past performances). Upcoming lists sort on this so a long run whose remaining
+// shows are far off doesn't jump ahead of shows happening sooner.
+export function getPerformanceNextDate(dates: Date[]) {
+  const today = getTodayInPerformanceTimeZone();
+  return (
+    sortPerformanceDates(dates).find((date) => date.valueOf() >= today) ??
+    getPerformanceClosingDate(dates)
+  );
+}
+
 export function formatPerformanceDateSummary(dates: Date[]) {
   const sorted = sortPerformanceDates(dates);
 

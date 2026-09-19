@@ -5,7 +5,11 @@ import { SITE, HOME, SOCIALS } from "@consts";
 import ArrowCard from "@components/ArrowCard.astro";
 import Link from "@components/Link.astro";
 import { getCollection } from "astro:content";
-import { getPerformanceOpeningDate, isUpcomingPerformance } from "@lib/utils";
+import {
+  getPerformanceNextDate,
+  getPerformanceOpeningDate,
+  isUpcomingPerformance,
+} from "@lib/utils";
 import type { CollectionEntry } from "astro:content";
 
 const blog = (await getCollection("blog"))
@@ -35,8 +39,8 @@ const upcomingPerformances = allPerformances
   .filter((performance) => isUpcomingPerformance(performance.data.dates))
   .sort(
     (a, b) =>
-      getPerformanceOpeningDate(a.data.dates).valueOf() -
-      getPerformanceOpeningDate(b.data.dates).valueOf(),
+      getPerformanceNextDate(a.data.dates).valueOf() -
+      getPerformanceNextDate(b.data.dates).valueOf(),
   );
 
 const pastPerformances = allPerformances

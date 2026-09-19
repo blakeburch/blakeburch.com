@@ -4,7 +4,11 @@ import Layout from "@layouts/Layout.astro";
 import Container from "@components/Container.astro";
 import ArrowCard from "@components/ArrowCard.astro";
 import { PERFORMANCES } from "@consts";
-import { getPerformanceOpeningDate, isUpcomingPerformance } from "@lib/utils";
+import {
+  getPerformanceNextDate,
+  getPerformanceOpeningDate,
+  isUpcomingPerformance,
+} from "@lib/utils";
 
 const allPerformances = await getCollection("performances");
 const nonDraftPerformances = allPerformances.filter(
@@ -15,8 +19,8 @@ const upcomingPerformances = nonDraftPerformances
   .filter((performance) => isUpcomingPerformance(performance.data.dates))
   .sort(
     (a, b) =>
-      getPerformanceOpeningDate(a.data.dates).valueOf() -
-      getPerformanceOpeningDate(b.data.dates).valueOf(),
+      getPerformanceNextDate(a.data.dates).valueOf() -
+      getPerformanceNextDate(b.data.dates).valueOf(),
   );
 
 const pastPerformances = nonDraftPerformances
