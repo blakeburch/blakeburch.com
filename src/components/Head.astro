@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { ViewTransitions } from "astro:transitions";
+import { stripMarkdownLinks } from "../lib/utils";
 
 import "@fontsource/geist-sans";
 import "@fontsource/geist-mono";
@@ -13,7 +14,11 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
+const { title, image = "/blog-placeholder-1.jpg" } = Astro.props;
+// Some pages (e.g. plain markdown) have no description.
+const description = Astro.props.description
+  ? stripMarkdownLinks(Astro.props.description)
+  : Astro.props.description;
 ---
 
 <!-- Global Metadata -->

@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import Tag from './Tag.astro';
-import { cn, formatPerformanceDateSummary, readingTime } from '../lib/utils';
+import { cn, formatPerformanceDateSummary, readingTime, stripMarkdownLinks } from '../lib/utils';
 import { instrumentIcons, formatInstrumentLabel } from '../utils/instruments';
 
 type Props = {
@@ -57,7 +57,7 @@ const instruments =
         )
       }
       <div class="mt-2 text-sm">
-        {entry.data.description}
+        {stripMarkdownLinks(entry.data.description)}
       </div>
     </div>
     {(instruments?.length || displayTags.length > 0 || readTime) && (

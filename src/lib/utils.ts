@@ -13,6 +13,32 @@ export function formatDate(date: Date) {
   }).format(date);
 }
 
+// Descriptions may contain inline markdown links: [text](https://example.com).
+const MARKDOWN_LINK = /\[([^\]]+)\]\(((?:https?:\/\/|\/)[^\s)]+)\)/g;
+
+// Plain text, for places that can't hold links (cards are already an <a>,
+// plus meta tags and RSS).
+export function stripMarkdownLinks(text: string) {
+  return text.replace(MARKDOWN_LINK, "$1");
+}
+
+function escapeHtml(text: string) {
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+// HTML with markdown links turned into anchors; everything else is escaped.
+export function renderMarkdownLinks(text: string) {
+  return escapeHtml(text).replace(MARKDOWN_LINK, (_, label, href) => {
+    const external = href.startsWith("http");
+    const attrs = external ? ' target="_blank" rel="noopener noreferrer"' : "";
+    return `<a href="${href}"${attrs} class="underline underline-offset-[3px] decoration-black/30 dark:decoration-white/30 hover:decoration-black/50 dark:hover:decoration-white/50 hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out">${label}</a>`;
+  });
+}
+
 export function readingTime(html: string) {
   const textOnly = html.replace(/<[^>]+>/g, "");
   const wordCount = textOnly.split(/\s+/).length;
