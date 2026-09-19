@@ -1,4 +1,5 @@
 export const instrumentIcons: { [key: string]: string } = {
+  'composition': '🎼',
   'percussion': '🥁',
   'piano': '🎹',
   'vocal - tenor': '🎤',
