@@ -6,17 +6,27 @@ description: A page to learn more about my background and interests.
 
 # About Me
 
-[Resume](/blake-burch-resume.pdf) / [Personal README](/readme)
+[Resume](/blake-burch-resume.pdf) / [Manager README](/readme)
+
+## Creative
+
+I'm an Austin-based musician, improviser, and composer who will happily make sonically pleasing noise with percussion, piano, or voice. Sometimes all in one night! Lately, I'm a regular in Austin's improv scene, where I underscores fully improvised musicals like Villain and Rocky Horror Puppet Show, create experimental musical comedy acts, and lead singing improv jams.
+
+I also sing with Panoramic Voices, recently performing in a live scoring of The Lord of the Rings: The Fellowship of the Ring with the Central Texas Philharmonic. When inspiration strikes, I post short original songs on socials that critics say are “surprisingly listenable.”
+
+In college, I studied Music Education for Percussion at Texas Christian University, teaching private lessons to 20+ students ranging from 6th-12th grade. My playing and style was shaped by Dr. Brian West, Dr. Shawn Hart, Glenn Fugett, Jeffrey Hodge, and Nick Werth. In my early years, I had the opportunity to perform at Carnegie Hall, Bass Hall, Merkin Hall, Super Bowl XLV, and the Rose Bowl. Halfway through my time, I switched to study business and graduated with a minor in Music. Now, 10 years later, I'm finally shifting my time towards more creative endeavors.
 
 ## Work
 
-I’m a pioneer in data strategy and AI, passionate about helping teams automate and act on their data.
+At work, I’m a pioneer in data strategy and AI, passionate about helping teams automate and act on their data.
 
-Over the course of 10 years, I've found that no matter the size or the industry, every brand is struggling to drive strategic action and results from their data. As a self-taught technologist, it’s always been my mission to build streamlined workflows and intelligent systems that help companies discover how they can use their overload of data in smarter ways to drive growth every year. My goal is to radically change the way organizations think about using their data and automating their work.
+Over the course of a decade, I've found that no matter the size or the industry, every brand is struggling to drive strategic action and results from their data. As a self-taught technologist, it’s always been my mission to build streamlined workflows and intelligent systems that help companies discover how they can use their overload of data in smarter ways to drive growth every year. My goal is to radically change the way organizations think about using their data and automating their work.
 
-Currently, I build data systems at Roboflow, a tool that helps developers label, train, and deploy vision AI models. My main focuses are driving product improvements that generate revenue, orchestrating data across company functions, and building automated operations with AI.
+Currently, I perform contract work involving solutions that combine product, data, and AI for SaaS businesses. If you have data problems that seem insurmountable or need to streamline operations with data, I'd be happy to work with you!
 
-Previously, I was the co-founder and CEO of Shipyard, a data operations platform that helps Data Teams launch, monitor, and share their solutions without worrying about infrastructure. I drove the company's vision, strategy, and product roadmap, helping customers drive value from their data through end-to-end automation.
+Previously, I built data systems for the GTM and Operations teams at Roboflow, a tool that helps developers label, train, and deploy vision AI models. My main focus was driving product improvements that generate revenue, orchestrating data across company functions, and building automated operations with AI.
+
+Before that, I was the co-founder and CEO of Shipyard, a data operations platform that helped Data Teams launch, monitor, and share their solutions without worrying about infrastructure. I drove the company's vision, strategy, and product roadmap, helping customers drive value from their data through end-to-end automation.
 
 Before that, I was the Head of Data Services at PMG, directing the agency’s roadmap and strategy for the Data Engineering, Data Activation, and Data Innovation teams. Over the course of my career, I’ve had the opportunity to work with and shape the digital strategies of brands like GAP Inc., Sephora, Abercrombie & Fitch, H-E-B Grocery, OpenTable, Travelocity, and Cirque Du Soleil.
 
